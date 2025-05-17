@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Clock App</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="active" data-tab="clock"><i class="fas fa-clock"></i> Clock</li>
+                <li data-tab="alarm"><i class="fas fa-bell"></i> Alarm</li>
+                <li data-tab="world-clock"><i class="fas fa-globe"></i> World Clock</li>
+                <li data-tab="stopwatch"><i class="fas fa-stopwatch"></i> Stopwatch</li>
+                <li data-tab="timer"><i class="fas fa-hourglass-half"></i> Timer</li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="tab-content active" id="clock">
+                <div class="analog-clock">
+                    <div class="clock-face">
+                        <div class="hour-circle">
+                            <div class="hour-value">03</div>
+                            <div class="hour-label">HOURS</div>
+                            <div class="hour-marker"></div>
+                        </div>
+                        <div class="minute-circle">
+                            <div class="minute-value">58</div>
+                            <div class="minute-label">MINUTES</div>
+                            <div class="minute-marker"></div>
+                        </div>
+                        <div class="second-circle">
+                            <div class="second-value">46</div>
+                            <div class="second-label">SECONDS</div>
+                            <div class="second-marker"></div>
+                        </div>
+                        <div class="period">PM</div>
+                    </div>
+                </div>
+                <div class="digital-clock">
+                    <div class="time">00:00:00</div>
+                    <div class="date">Monday, January 1, 2023</div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="alarm">
+                <h2>Alarm</h2>
+                <div class="alarm-container">
+                    <div class="alarm-form">
+                        <input type="time" id="alarm-time">
+                        <button id="set-alarm">Set Alarm</button>
+                    </div>
+                    <div class="alarm-list">
+                        <h3>Scheduled Alarms</h3>
+                        <ul id="alarms"></ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="world-clock">
+                <h2>World Clock</h2>
+                <div class="world-clock-container">
+                    <div class="add-timezone">
+                        <select id="timezone-select">
+                            <option value="America/New_York">New York</option>
+                            <option value="Europe/London">London</option>
+                            <option value="Asia/Tokyo">Tokyo</option>
+                            <option value="Australia/Sydney">Sydney</option>
+                            <option value="Europe/Paris">Paris</option>
+                        </select>
+                        <button id="add-timezone">Add Timezone</button>
+                    </div>
+                    <div class="timezone-list" id="timezone-list"></div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="stopwatch">
+                <h2>Stopwatch</h2>
+                <div class="stopwatch-container">
+                    <div class="stopwatch-display">00:00:00.000</div>
+                    <div class="stopwatch-controls">
+                        <button id="stopwatch-start">Start</button>
+                        <button id="stopwatch-stop">Stop</button>
+                        <button id="stopwatch-reset">Reset</button>
+                        <button id="stopwatch-lap">Lap</button>
+                    </div>
+                    <div class="laps-container">
+                        <h3>Laps</h3>
+                        <ul id="laps"></ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="timer">
+                <h2>Timer</h2>
+                <div class="timer-container">
+                    <div class="timer-setup">
+                        <div class="timer-input">
+                            <input type="number" id="hours" min="0" max="23" value="0">
+                            <label for="hours">Hours</label>
+                        </div>
+                        <div class="timer-input">
+                            <input type="number" id="minutes" min="0" max="59" value="0">
+                            <label for="minutes">Minutes</label>
+                        </div>
+                        <div class="timer-input">
+                            <input type="number" id="seconds" min="0" max="59" value="0">
+                            <label for="seconds">Seconds</label>
+                        </div>
+                    </div>
+                    <div class="timer-display">00:00:00</div>
+                    <div class="timer-controls">
+                        <button id="timer-start">Start</button>
+                        <button id="timer-pause">Pause</button>
+                        <button id="timer-reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
